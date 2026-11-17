@@ -1,0 +1,120 @@
+:root {
+  --navy: #1F2A44;
+  --gold: #B8975A;
+  --gold-soft: #F4EDE0;
+  --text: #1F2A44;
+  --sub: #6E7484;
+  --bg: #FFFFFF;
+  --bg-alt: #F7F5F0;
+  --card: #FFFFFF;
+  --line: #E7E2D8;
+  --btn-bg: #1F2A44;
+  --btn-text: #FFFFFF;
+  --radius: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ECE7DD; --sub: #A2A7B4; --bg: #141A2B; --bg-alt: #1A2236; --card: #1F2840; --line: #2E3852;
+    --gold: #CDAE74; --gold-soft: #242B3C; --btn-bg: #CDAE74; --btn-text: #141A2B;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.85; -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, .serif { font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif; font-weight: 700; }
+img { max-width: 100%; display: block; }
+a { color: var(--gold); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* ヘッダー */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent);
+       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none;
+         font-family: "Shippori Mincho", serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.08em; }
+.brand img { width: 34px; height: 34px; border-radius: 8px; }
+.top nav a { color: var(--sub); text-decoration: none; font-size: 0.9rem; margin-left: 18px; }
+.top nav a:hover { color: var(--gold); }
+
+/* ボタン */
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--btn-bg); color: var(--btn-text);
+       padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+.btn small { display: block; font-size: 0.7rem; font-weight: 500; opacity: 0.8; line-height: 1.2; }
+.btn .apple { width: 22px; height: 22px; fill: currentColor; }
+.badge-free { display: block; margin-top: 12px; font-size: 0.85rem; color: var(--sub); }
+
+/* ヒーロー */
+.hero { background: linear-gradient(160deg, var(--gold-soft), var(--bg) 70%); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+.logo-line { color: var(--gold); letter-spacing: 0.4em; font-size: 0.8rem; margin-bottom: 14px; font-family: "Shippori Mincho", serif; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.4; margin: 0 0 18px; letter-spacing: 0.03em; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.lead { font-size: 1.02rem; color: var(--sub); margin: 0 0 28px; }
+.phone { justify-self: center; width: min(300px, 80%); border-radius: 44px; padding: 10px; background: #111;
+         box-shadow: 0 30px 60px -24px rgba(31, 42, 68, 0.5); transform: rotate(3deg); }
+.phone img { border-radius: 34px; }
+
+/* セクション共通 */
+section { padding: 80px 0; }
+section.alt { background: var(--bg-alt); }
+.eyebrow { color: var(--gold); font-weight: 700; letter-spacing: 0.2em; font-size: 0.78rem; text-transform: uppercase; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.5; margin: 6px 0 16px; }
+.center { text-align: center; }
+.sub { color: var(--sub); }
+
+/* お悩み */
+.worries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.worry { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; font-weight: 600; }
+.worry span { display: block; font-size: 1.8rem; margin-bottom: 6px; }
+
+/* できること */
+.grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+.tile { background: var(--card); border-radius: var(--radius); padding: 26px 22px; text-align: center; border: 1px solid var(--line); }
+.tile .ico { width: 60px; height: 60px; margin: 0 auto 12px; border-radius: 18px; display: grid; place-items: center;
+             font-size: 1.7rem; background: var(--gold-soft); }
+.tile b { display: block; font-size: 1rem; margin-bottom: 4px; }
+.tile p { margin: 0; font-size: 0.88rem; color: var(--sub); }
+
+/* 特長（左右交互） */
+.feature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.feature + .feature { margin-top: 90px; }
+.feature.reverse > div:first-child { order: 2; }
+.feature .shot { justify-self: center; width: min(280px, 80%); border-radius: 40px; padding: 9px; background: #111;
+                 box-shadow: 0 24px 50px -24px rgba(0,0,0,0.35); }
+.feature .shot img { border-radius: 31px; }
+.num { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+       border: 1.5px solid var(--gold); color: var(--gold); font-family: "Shippori Mincho", serif; font-weight: 700; }
+.feature ul { padding-left: 1.2em; color: var(--sub); }
+
+/* 安心 */
+.trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+.trust div { background: var(--card); border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); }
+.trust b { display: block; margin-bottom: 6px; }
+.trust p { margin: 0; font-size: 0.9rem; color: var(--sub); }
+
+/* 最後の呼びかけ */
+.cta { text-align: center; background: linear-gradient(180deg, var(--bg), var(--gold-soft)); }
+.cta img.icon { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 18px; box-shadow: 0 12px 30px -12px rgba(31,42,68,.5); }
+
+/* フッター */
+footer { padding: 36px 0 48px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--sub); }
+footer .links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer a { color: var(--sub); }
+.note { font-size: 0.78rem; color: var(--sub); margin-top: 14px; line-height: 1.7; }
+
+@media (max-width: 760px) {
+  br.pc { display: none; }
+  .hero .wrap, .feature { grid-template-columns: 1fr; }
+  .feature { gap: 28px; }
+  .feature.reverse > div:first-child { order: 0; }
+  .worries, .trust { grid-template-columns: 1fr; }
+  .grid6 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tile { padding: 20px 14px; }
+  .top nav a:not(:last-child) { display: none; }
+  section { padding: 60px 0; }
+}
